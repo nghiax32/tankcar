@@ -17,14 +17,14 @@ class Transform
         inline void TranslateX(double x)
         {
             X += x;
-            if (X + TANK_SIZE > SCREEN_WIDTH) X = SCREEN_WIDTH;
+            if (X > SCREEN_WIDTH - TANK_SIZE) X = SCREEN_WIDTH - TANK_SIZE;
             if (X < 0) X = 0;
         }
 
         inline void TranslateY(double y)
         {
             Y += y;
-            if (Y + TANK_SIZE > SCREEN_HEIGHT) Y = SCREEN_HEIGHT;
+            if (Y > SCREEN_HEIGHT - TANK_SIZE) Y = SCREEN_HEIGHT - TANK_SIZE;
             if (Y < 0) Y = 0;
         }
 };
