@@ -1,7 +1,6 @@
 #include "Engine.h"
 #include "TextureManager.h"
 #include "EventHandler.h"
-
 #include "Tank.h"
 
 Engine* Engine::sInstance = nullptr;
@@ -52,7 +51,7 @@ bool Engine::Init()
 	}
 
 	TextureManager::GetInstance()->Load("tank1", "images/tank1.png");
-    player = new Tank(new Properties("tank1", 100, 100, 256, 256, 0));
+    player = new Tank(new Properties("tank1", 0, 0, TANK_SIZE, TANK_SIZE));
 
 	return mIsRunning = true;
 }

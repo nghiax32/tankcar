@@ -16,7 +16,8 @@ void Tank::Render()
 
 void Tank::Update()
 {
-    int Speed = 5;
+    const int Speed = 3;
+
     if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_A))
     {
         mAnimation->SetProps(mTextureID, 0, 1, 60, -90);

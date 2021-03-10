@@ -10,27 +10,25 @@ using namespace std;
 struct Properties
 {
     public:
-    Properties(string _TextureID, double _X, double _Y, int _Width, int _Height, int _Angle)
+    Properties(string _TextureID, double _X, double _Y, int _Width, int _Height)
     {
         TextureID = _TextureID;
         X = _X;
         Y = _Y;
         Width = _Width;
         Height = _Height;
-        Angle = _Angle;
     }
 
     public:
         string TextureID;
         double X, Y;
         int Width, Height;
-        int Angle;
 };
 
 class GameObject
 {
     public:
-        GameObject(Properties* props) : mTextureID(props->TextureID), mWidth(props->Width), mHeight(props->Height), mAngle(props->Angle)
+        GameObject(Properties* props) : mTextureID(props->TextureID), mWidth(props->Width), mHeight(props->Height)
         {
             mTransform = new Transform(props->X, props->Y);
         }
@@ -43,7 +41,6 @@ class GameObject
         Transform* mTransform;
         string mTextureID;
         int mWidth, mHeight;
-        int mAngle;
 };
 
 #endif // GAMEOBJECT_H
