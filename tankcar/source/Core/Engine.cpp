@@ -50,8 +50,11 @@ bool Engine::Init()
 		return false;
 	}
 
-	TextureManager::GetInstance()->Load("tank1", "images/tank1.png");
-    player = new Tank(new Properties("tank1", 0, 0, TANK_SIZE, TANK_SIZE));
+	TextureManager::GetInstance()->Load("map", "images/map.png");
+
+	TextureManager::GetInstance()->Load("player", "images/tank1.png");
+
+    player = new Tank(new Properties("player", 0, 0, TANK_SIZE, TANK_SIZE));
 
 	return mIsRunning = true;
 }
@@ -66,6 +69,7 @@ void Engine::Render()
     SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 0);
     SDL_RenderClear(mRenderer);
 
+    TextureManager::GetInstance()->Render("map", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
     player->Render();
 
     SDL_RenderPresent(mRenderer);

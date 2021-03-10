@@ -27,12 +27,12 @@ class Engine
         bool Clean();
         void Quit();
 
-        inline bool IsRunning()
+        bool IsRunning()
         {
             return mIsRunning;
         }
 
-        inline SDL_Renderer* GetRenderer()
+        SDL_Renderer* GetRenderer()
         {
             return mRenderer;
         }

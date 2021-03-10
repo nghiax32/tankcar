@@ -3,7 +3,7 @@
 #include "GameObject.h"
 #include "EventHandler.h"
 
-Tank::Tank(Properties* props) : Character(props)
+Tank::Tank(Properties* props) : GameObject(props)
 {
     mAnimation = new Animation();
     mAnimation->SetProps(mTextureID, 0, 1, 60, 0);

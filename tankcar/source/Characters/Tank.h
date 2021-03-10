@@ -1,7 +1,7 @@
 #ifndef TANK_H
 #define TANK_H
 
-#include "Character.h"
+#include "GameObject.h"
 #include "Animation.h"
 
 #include <bits/stdc++.h>
@@ -11,7 +11,7 @@
 #include <SDL_mixer.h>
 using namespace std;
 
-class Tank : public Character
+class Tank : public GameObject
 {
     public:
         Tank(Properties* pros);
