@@ -1,0 +1,100 @@
+# depslib dependency file v1.0
+1615346508 source:d:\sdl\mycode\tank1975\main.cpp
+	"Engine.h"
+
+1615273934 d:\sdl\mycode\tank1975\source\core\engine.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1615347542 source:d:\sdl\mycode\tank1975\source\core\engine.cpp
+	"Engine.h"
+	"TextureManager.h"
+	"EventHandler.h"
+	"Tank.h"
+
+1615345711 d:\sdl\mycode\tank1975\source\graphics\texturemanager.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1615347858 d:\sdl\mycode\tank1975\source\physics\vector2d.h
+	<bits/stdc++.h>
+
+1615348821 source:d:\sdl\mycode\tank1975\source\graphics\texturemanager.cpp
+	"TextureManager.h"
+	"Engine.h"
+
+1614737024 d:\sdl\mycode\tank1975\library.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1614737024 d:\sdl\mycode\tank1975\\library.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1615348794 d:\sdl\mycode\tank1975\source\physics\transform.h
+	<bits/stdc++.h>
+
+1615348681 source:d:\sdl\mycode\tank1975\source\characters\tank.cpp
+	"Tank.h"
+	"TextureManager.h"
+	"GameObject.h"
+	"EventHandler.h"
+
+1615345219 d:\sdl\mycode\tank1975\source\characters\tank.h
+	"Character.h"
+	"Animation.h"
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1615347171 d:\sdl\mycode\tank1975\source\characters\character.h
+	"GameObject.h"
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1615347382 d:\sdl\mycode\tank1975\source\object\gameobject.h
+	"Transform.h"
+	<bits/stdc++.h>
+	<SDL.h>
+
+1615320383 d:\sdl\mycode\tank1975\source\object\baseobject.h
+
+1615348945 d:\sdl\mycode\tank1975\source\animation\animation.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1615348891 source:d:\sdl\mycode\tank1975\source\animation\animation.cpp
+	"Animation.h"
+	"TextureManager.h"
+
+1615318055 d:\sdl\mycode\tank1975\source\eventhandler\eventhandler.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1615318278 source:d:\sdl\mycode\tank1975\source\eventhandler\eventhandler.cpp
+	"EventHandler.h"
+	"Engine.h"
+
