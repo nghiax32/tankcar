@@ -11,35 +11,34 @@ Tank::Tank(Properties* props) : Character(props)
 
 void Tank::Render()
 {
-    mAnimation->Render(mTransform->X, mTransform->Y, mWidth, mHeight, mAngle);
+    mAnimation->Render(mTransform->X, mTransform->Y, mWidth, mHeight);
 }
 
 void Tank::Update()
 {
-
+    int Speed = 5;
     if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_A))
     {
         mAnimation->SetProps(mTextureID, 0, 1, 60, -90);
-        mAnimation->mAngle = 180;
-        mTransform->TranslateX(-2);
+        mTransform->TranslateX(-Speed);
     }
 
     if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_D))
     {
         mAnimation->SetProps(mTextureID, 0, 1, 60, 90);
-        mTransform->TranslateX(2);
+        mTransform->TranslateX(Speed);
     }
 
     if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_W))
     {
         mAnimation->SetProps(mTextureID, 0, 1, 60, 0);
-        mTransform->TranslateY(-2);
+        mTransform->TranslateY(-Speed);
     }
 
     if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_S))
     {
         mAnimation->SetProps(mTextureID, 0, 1, 60, 180);
-        mTransform->TranslateY(2);
+        mTransform->TranslateY(Speed);
     }
 
     mAnimation->Update();

@@ -15,7 +15,7 @@ bool Engine::Init()
 		return false;
 	}
 
-	mWindow = SDL_CreateWindow("TANK 1975", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+	mWindow = SDL_CreateWindow("TANKCAR", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
     if(mWindow == nullptr)
     {

@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="tank1975" />
+		<Option title="tankcar" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -64,7 +64,6 @@
 		<Unit filename="source/Graphics/TextureManager.h" />
 		<Unit filename="source/Object/GameObject.h" />
 		<Unit filename="source/Physics/Transform.h" />
-		<Unit filename="source/Physics/Vector2D.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

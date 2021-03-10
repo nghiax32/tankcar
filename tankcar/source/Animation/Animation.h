@@ -14,7 +14,7 @@ class Animation
         Animation() {}
 
         void Update();
-        void Render(double x, double y, int SpritWidth, int SpritHeight, int Angle);
+        void Render(double x, double y, int SpritWidth, int SpritHeight);
         void SetProps(string _TextureID, int _SpriteRow, int _FrameCount, int _AnimationSpeed, int _Angle);
 
     public:
