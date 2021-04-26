@@ -2,9 +2,12 @@
 #include "TextureManager.h"
 #include "EventHandler.h"
 #include "Tank.h"
+#include "Enemy.h"
+#include "Timer.h"
 
 Engine* Engine::sInstance = nullptr;
 Tank* player = nullptr;
+Enemy* enemy = nullptr;
 
 bool Engine::Init()
 {
@@ -54,14 +57,25 @@ bool Engine::Init()
 
 	TextureManager::GetInstance()->Load("player", "images/tank1.png");
 
-    player = new Tank(new Properties("player", 0, 0, TANK_SIZE, TANK_SIZE));
+	TextureManager::GetInstance()->Load("enemy", "images/tank2.png");
+
+    player = new Tank(new Properties("player", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
+
+    enemy = new Enemy(new Properties("enemy", 0, 0));
 
 	return mIsRunning = true;
+}
+
+void Engine::Events()
+{
+    EventHandler::GetInstance()->Input();
 }
 
 void Engine::Update()
 {
     player->Update();
+    enemy->Update(player->mTransform->X, player->mTransform->Y);
+
 }
 
 void Engine::Render()
@@ -70,14 +84,15 @@ void Engine::Render()
     SDL_RenderClear(mRenderer);
 
     TextureManager::GetInstance()->Render("map", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+
     player->Render();
+    enemy->Render();
+
+    SDL_Color textColor = {0, 0, 0};
+    TextureManager::GetInstance()->LoadText(Timer::GetInstance()->GetCurrentTime(), "fonts/FrederickatheGreat-Regular.ttf", 26, textColor);
+    Timer::GetInstance()->Render();
 
     SDL_RenderPresent(mRenderer);
-}
-
-void Engine::Events()
-{
-    EventHandler::GetInstance()->Input();
 }
 
 bool Engine::Clean()

@@ -20,6 +20,9 @@
 					<Add directory="source/Characters" />
 					<Add directory="source/Animation" />
 					<Add directory="source/EventHandler" />
+					<Add directory="source/Timer" />
+					<Add directory="Collision" />
+					<Add directory="source/Collision" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -36,6 +39,9 @@
 					<Add directory="source/Characters" />
 					<Add directory="source/Animation" />
 					<Add directory="source/EventHandler" />
+					<Add directory="source/Timer" />
+					<Add directory="Collision" />
+					<Add directory="source/Collision" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -53,9 +59,12 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="source/Animation/Animation.cpp" />
 		<Unit filename="source/Animation/Animation.h" />
-		<Unit filename="source/Characters/Character.h" />
+		<Unit filename="source/Characters/Enemy.cpp" />
+		<Unit filename="source/Characters/Enemy.h" />
 		<Unit filename="source/Characters/Tank.cpp" />
 		<Unit filename="source/Characters/Tank.h" />
+		<Unit filename="source/Collision/CollisionHandler.cpp" />
+		<Unit filename="source/Collision/CollisionHandler.h" />
 		<Unit filename="source/Core/Engine.cpp" />
 		<Unit filename="source/Core/Engine.h" />
 		<Unit filename="source/EventHandler/EventHandler.cpp" />
@@ -64,6 +73,8 @@
 		<Unit filename="source/Graphics/TextureManager.h" />
 		<Unit filename="source/Object/GameObject.h" />
 		<Unit filename="source/Physics/Transform.h" />
+		<Unit filename="source/Timer/Timer.cpp" />
+		<Unit filename="source/Timer/Timer.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

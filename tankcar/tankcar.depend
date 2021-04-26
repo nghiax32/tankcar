@@ -98,41 +98,41 @@
 	"EventHandler.h"
 	"Engine.h"
 
-1615346508 source:d:\sdl\mycode\tankcar\main.cpp
+1619404467 source:d:\sdl\mycode\tankcar\main.cpp
 	"Engine.h"
+	"Timer.h"
 
-1615361209 d:\sdl\mycode\tankcar\source\core\engine.h
+1618938739 d:\sdl\mycode\tankcar\source\core\engine.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
-	<SDL_mixer.h>
 
-1615356899 source:d:\sdl\mycode\tankcar\source\animation\animation.cpp
+1615634597 source:d:\sdl\mycode\tankcar\source\animation\animation.cpp
 	"Animation.h"
 	"TextureManager.h"
 
-1615356911 d:\sdl\mycode\tankcar\source\animation\animation.h
+1618930704 d:\sdl\mycode\tankcar\source\animation\animation.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
 	<SDL_mixer.h>
 
-1615345711 d:\sdl\mycode\tankcar\source\graphics\texturemanager.h
+1619430461 d:\sdl\mycode\tankcar\source\graphics\texturemanager.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
 	<SDL_mixer.h>
 
-1615360777 source:d:\sdl\mycode\tankcar\source\characters\tank.cpp
+1619404195 source:d:\sdl\mycode\tankcar\source\characters\tank.cpp
 	"Tank.h"
 	"TextureManager.h"
 	"GameObject.h"
 	"EventHandler.h"
 
-1615360769 d:\sdl\mycode\tankcar\source\characters\tank.h
+1619404188 d:\sdl\mycode\tankcar\source\characters\tank.h
 	"GameObject.h"
 	"Animation.h"
 	<bits/stdc++.h>
@@ -149,12 +149,12 @@
 	<SDL_ttf.h>
 	<SDL_mixer.h>
 
-1615357752 d:\sdl\mycode\tankcar\source\object\gameobject.h
+1619430477 d:\sdl\mycode\tankcar\source\object\gameobject.h
 	"Transform.h"
+	"TextureManager.h"
 	<bits/stdc++.h>
-	<SDL.h>
 
-1615360416 d:\sdl\mycode\tankcar\source\physics\transform.h
+1618932182 d:\sdl\mycode\tankcar\source\physics\transform.h
 	"Engine.h"
 	<bits/stdc++.h>
 
@@ -165,17 +165,51 @@
 	<SDL_ttf.h>
 	<SDL_mixer.h>
 
-1615362646 source:d:\sdl\mycode\tankcar\source\core\engine.cpp
+1619404478 source:d:\sdl\mycode\tankcar\source\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"EventHandler.h"
 	"Tank.h"
+	"Enemy.h"
+	"Timer.h"
 
 1615318278 source:d:\sdl\mycode\tankcar\source\eventhandler\eventhandler.cpp
 	"EventHandler.h"
 	"Engine.h"
 
-1615348821 source:d:\sdl\mycode\tankcar\source\graphics\texturemanager.cpp
+1619431368 source:d:\sdl\mycode\tankcar\source\graphics\texturemanager.cpp
 	"TextureManager.h"
 	"Engine.h"
+
+1619421496 source:d:\sdl\mycode\tankcar\source\characters\enemy.cpp
+	"Enemy.h"
+	"TextureManager.h"
+	"GameObject.h"
+	"EventHandler.h"
+
+1619421488 d:\sdl\mycode\tankcar\source\characters\enemy.h
+	"GameObject.h"
+	"Animation.h"
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1619431394 source:d:\sdl\mycode\tankcar\source\timer\timer.cpp
+	"Timer.h"
+	"TextureManager.h"
+	<bits/stdc++.h>
+	<SDL.h>
+
+1619431555 d:\sdl\mycode\tankcar\source\timer\timer.h
+	<bits/stdc++.h>
+	<SDL.h>
+
+1619425515 source:d:\sdl\mycode\tankcar\source\collision\collisionhandler.cpp
+	"CollisionHandler.h"
+
+1619425016 d:\sdl\mycode\tankcar\source\collision\collisionhandler.h
+	<bits/stdc++.h>
+	<SDL.h>
 

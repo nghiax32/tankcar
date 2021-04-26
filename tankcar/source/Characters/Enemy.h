@@ -1,5 +1,5 @@
-#ifndef TANK_H
-#define TANK_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 #include "GameObject.h"
 #include "Animation.h"
@@ -11,18 +11,16 @@
 #include<SDL_mixer.h>
 using namespace std;
 
-class Tank : public GameObject
+class Enemy : public GameObject
 {
     public:
-        Tank(Properties* pros);
+        Enemy(Properties* pros);
 
-        void Update();
+        void Update(int X, int Y);
         void Render();
         void Clean();
-
-
     private:
         Animation* mAnimation;
 };
 
-#endif // TANK_H
+#endif // ENEMY_H

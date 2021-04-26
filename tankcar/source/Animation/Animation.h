@@ -1,11 +1,11 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include <bits/stdc++.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-#include <SDL_mixer.h>
+#include<bits/stdc++.h>
+#include<SDL.h>
+#include<SDL_image.h>
+#include<SDL_ttf.h>
+#include<SDL_mixer.h>
 using namespace std;
 
 class Animation
