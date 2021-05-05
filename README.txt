@@ -5,3 +5,6 @@ Tankcar
 + Enemy, Bullet được sinh vô hạn và chứa trong vector.
 + Enemy được sinh ra nhanh hơn dựa trên bộ đếm thời gian.
 + Các tương tác va chạm được thiết kế đầy đủ.
+- Điểm yếu:
++ Các Enemy đang xử dụng chung bộ điều khiển di chuyển và bắn đạn nên nhìn rất đồng điệu, không tự nhiên.
++ Cần thêm vật chắn và các yếu tố khác để game hấp dẫn hơn.
