@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/tank1975" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/tankcar" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -15,18 +15,15 @@
 					<Add option="-g" />
 					<Add directory="source/Core" />
 					<Add directory="source/Graphics" />
-					<Add directory="source/Physics" />
 					<Add directory="source/Object" />
-					<Add directory="source/Characters" />
-					<Add directory="source/Animation" />
 					<Add directory="source/EventHandler" />
+					<Add directory="source/MoveHandler" />
 					<Add directory="source/Timer" />
-					<Add directory="Collision" />
-					<Add directory="source/Collision" />
+					<Add directory="source" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/tank1975" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/tankcar" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -34,14 +31,11 @@
 					<Add option="-O2" />
 					<Add directory="source/Core" />
 					<Add directory="source/Graphics" />
-					<Add directory="source/Physics" />
 					<Add directory="source/Object" />
-					<Add directory="source/Characters" />
-					<Add directory="source/Animation" />
 					<Add directory="source/EventHandler" />
+					<Add directory="source/MoveHandler" />
 					<Add directory="source/Timer" />
-					<Add directory="Collision" />
-					<Add directory="source/Collision" />
+					<Add directory="source" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -51,34 +45,31 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory=".dll" />
 		</Compiler>
-		<Linker>
-			<Add directory=".dll" />
-		</Linker>
 		<Unit filename="main.cpp" />
-		<Unit filename="source/Animation/Animation.cpp" />
-		<Unit filename="source/Animation/Animation.h" />
-		<Unit filename="source/Characters/Enemy.cpp" />
-		<Unit filename="source/Characters/Enemy.h" />
-		<Unit filename="source/Characters/Tank.cpp" />
-		<Unit filename="source/Characters/Tank.h" />
-		<Unit filename="source/Collision/CollisionHandler.cpp" />
-		<Unit filename="source/Collision/CollisionHandler.h" />
 		<Unit filename="source/Core/Engine.cpp" />
 		<Unit filename="source/Core/Engine.h" />
 		<Unit filename="source/EventHandler/EventHandler.cpp" />
 		<Unit filename="source/EventHandler/EventHandler.h" />
+		<Unit filename="source/Global.cpp" />
+		<Unit filename="source/Global.h" />
 		<Unit filename="source/Graphics/TextureManager.cpp" />
 		<Unit filename="source/Graphics/TextureManager.h" />
-		<Unit filename="source/Object/GameObject.h" />
-		<Unit filename="source/Physics/Transform.h" />
+		<Unit filename="source/MoveHandler/MoveHandler.cpp" />
+		<Unit filename="source/MoveHandler/MoveHandler.h" />
+		<Unit filename="source/Object/Bullet.cpp" />
+		<Unit filename="source/Object/Bullet.h" />
+		<Unit filename="source/Object/Enemy.cpp" />
+		<Unit filename="source/Object/Enemy.h" />
+		<Unit filename="source/Object/Player.cpp" />
+		<Unit filename="source/Object/Player.h" />
 		<Unit filename="source/Timer/Timer.cpp" />
 		<Unit filename="source/Timer/Timer.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

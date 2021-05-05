@@ -15,6 +15,11 @@ class Timer
 
         void Render();
 
+        inline int GetTime()
+        {
+            return SDL_GetTicks();
+        }
+
         inline string GetCurrentTime()
         {
             stringstream ss;

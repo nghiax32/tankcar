@@ -7,10 +7,6 @@
 #include<SDL_ttf.h>
 using namespace std;
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
-const int TANK_SIZE = 64;
-
 class Engine
 {
     public:
@@ -20,26 +16,29 @@ class Engine
         }
 
         bool Init();
+        void Menu();
+        void Pause();
+        void End();
         void Events();
         void Update();
         void Render();
         bool Clean();
         void Quit();
 
-        bool IsRunning()
-        {
-            return mIsRunning;
-        }
-
         SDL_Renderer* GetRenderer()
         {
             return mRenderer;
         }
 
+        bool mIsRunning = false;
+        bool mIsMenu = false;
+        bool mIsPlaying = false;
+        bool mIsPaused = false;
+        bool mIsEnded = false;
+
     private:
         Engine() {}
         static Engine* sInstance;
-        bool mIsRunning;
         SDL_Window* mWindow = nullptr;
         SDL_Renderer* mRenderer = nullptr;
 };

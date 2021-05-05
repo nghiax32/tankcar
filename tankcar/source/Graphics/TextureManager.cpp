@@ -1,5 +1,6 @@
 #include "TextureManager.h"
 #include "Engine.h"
+#include "Global.h"
 
 TextureManager* TextureManager::sInstance = nullptr;
 
@@ -21,8 +22,8 @@ bool TextureManager::Load(string id, string path)
         return false;
     }
 
-    mTextureMap[id] = texture;
-    mProsMap[id] = &(surface->clip_rect);
+    Global::GetInstance()->mTextureMap[id] = texture;
+    Global::GetInstance()->mProsMap[id] = surface->clip_rect;
 	return true;
 }
 
@@ -52,8 +53,8 @@ bool TextureManager::LoadText(string id, string path, int fontSize, SDL_Color te
         return false;
     }
 
-    mTextureMap[id] = texture;
-    mProsMap[id] = &(textSurface->clip_rect);
+    Global::GetInstance()->mTextureMap[id] = texture;
+    Global::GetInstance()->mProsMap[id] = textSurface->clip_rect;
 	return true;
 }
 
@@ -61,29 +62,15 @@ void TextureManager::Render(string id, int x, int y, int width, int height, int 
 {
 	SDL_Rect srcRect = {0, 0, width, height};
     SDL_Rect dstRect = {x, y, width, height};
-	SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), mTextureMap[id], &srcRect, &dstRect, angle, nullptr, SDL_FLIP_NONE);
-}
-
-void TextureManager::RenderFrame(string id, int x, int y, int width, int height, int angle, int row, int frame)
-{
-    //cout << id << ' ' << x << ' ' << y << endl;
-    SDL_Rect srcRect = {width*frame, height*row, width, height};
-    SDL_Rect dstRect = {x, y, width, height};
-	SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), mTextureMap[id], &srcRect, &dstRect, angle, nullptr, SDL_FLIP_NONE);
-}
-
-void TextureManager::Drop(string id)
-{
-    SDL_DestroyTexture(mTextureMap[id]);
-    mTextureMap.erase(id);
+	SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), Global::GetInstance()->mTextureMap[id], &srcRect, &dstRect, angle, nullptr, SDL_FLIP_NONE);
 }
 
 void TextureManager::Clean()
 {
     map<string, SDL_Texture*>::iterator it;
-    for(it = mTextureMap.begin(); it != mTextureMap.end(); it++)
+    for(it = Global::GetInstance()->mTextureMap.begin(); it != Global::GetInstance()->mTextureMap.end(); it++)
         SDL_DestroyTexture(it->second);
 
-    mTextureMap.clear();
-
+    Global::GetInstance()->mTextureMap.clear();
+    Global::GetInstance()->mProsMap.clear();
 }
