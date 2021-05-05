@@ -24,7 +24,7 @@ class Player
         int LastTimeFire = 0;
         int BulletCount = 0;
         int Speed = 3;
-        int HP = 10;
+        int HP = 30;
 
         int Score = 0;
 

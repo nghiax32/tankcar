@@ -16,6 +16,7 @@ class Engine
         }
 
         bool Init();
+        void Load();
         void Menu();
         void Pause();
         void End();

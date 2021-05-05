@@ -85,7 +85,7 @@ void Enemy::Update(int X, int Y)
     mY = Global::GetInstance()->mProsMap[mTextureID].y;
 
     CurrentTime = Timer::GetInstance()->GetTime();
-    if(CurrentTime - LastTimeFire >= 1000)
+    if(CurrentTime - LastTimeFire >= 1500)
     {
         int _x, _y, _angle;
 

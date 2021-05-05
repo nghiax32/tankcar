@@ -10,6 +10,7 @@ using namespace std;
 int main(int argc, char* args[])
 {
     Engine::GetInstance()->Init();
+    Engine::GetInstance()->Load();
 
     while(Engine::GetInstance()->mIsRunning)
     {

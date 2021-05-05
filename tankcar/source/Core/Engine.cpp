@@ -56,7 +56,12 @@ bool Engine::Init()
 		return false;
 	}
 
-	TextureManager::GetInstance()->Load("MAP", "images/map.png");
+	return true;
+}
+
+void Engine::Load()
+{
+    TextureManager::GetInstance()->Load("MAP", "images/map.png");
 	TextureManager::GetInstance()->Load("TANK_PLAYER", "images/tank1.png");
     TextureManager::GetInstance()->Load("MENU_BACKGROUND", "images/menu_background.png");
     SDL_Color textColor = {255, 255, 255};
@@ -68,7 +73,7 @@ bool Engine::Init()
     TextureManager::GetInstance()->LoadText("PRESS ENTER TO CONTINUE OR ESC TO END", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
     TextureManager::GetInstance()->LoadText("ENDED", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
     TextureManager::GetInstance()->LoadText("YOUR SCORE IS", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
-    TextureManager::GetInstance()->LoadText("PRESS SPACE TO GO BACK TO MENU", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
+    TextureManager::GetInstance()->LoadText("PRESS BACKSPACE TO GO BACK TO MENU", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
 
 
     player = new Player("TANK_PLAYER", (SCREEN_WIDTH - TANK_SIZE) / 2, (SCREEN_HEIGHT - TANK_SIZE) / 2, 0);
@@ -79,8 +84,14 @@ bool Engine::Init()
     Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
     last_time_spawn = 0;
 
+    Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 100);
+    Mix_Music *music = Mix_LoadMUS("sounds/music.mp3");
+    Mix_PlayMusic(music, 1);
+
+    Timer::GetInstance()->start_time = int(SDL_GetTicks()) / 1000;
+
     mIsMenu = true;
-	return mIsRunning = true;
+    mIsRunning = true;
 }
 
 void Engine::Menu()
@@ -157,12 +168,17 @@ void Engine::End()
     Global::GetInstance()->mTextureMap.erase(Global::GetInstance()->convert(player->Score));
     Global::GetInstance()->mProsMap.erase(Global::GetInstance()->convert(player->Score));
 
-    Global::GetInstance()->print("PRESS SPACE TO GO BACK TO MENU", (SCREEN_HEIGHT - Global::GetInstance()->mProsMap["PRESS SPACE TO GO BACK TO MENU"].h) * 5 / 6);
+    player->HP = 10;
+    player->Del = false;
 
-    if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE))
+    Global::GetInstance()->print("PRESS BACKSPACE TO GO BACK TO MENU", (SCREEN_HEIGHT - Global::GetInstance()->mProsMap["PRESS SPACE TO GO BACK TO MENU"].h) * 5 / 6);
+
+    if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_BACKSPACE))
     {
         mIsEnded = false;
         mIsMenu = true;
+        TextureManager::GetInstance()->Clean();
+        Engine::Load();
     }
 
     SDL_RenderPresent(mRenderer);
@@ -178,24 +194,28 @@ void Engine::Update()
     player->Update();
 
     int CurrentTime = Timer::GetInstance()->GetTime()/1000;
-    if(CurrentTime <= 30 && CurrentTime % 10 == 0 && CurrentTime != last_time_spawn)
+    cout << CurrentTime << endl;
+    if(CurrentTime <= 30 && CurrentTime % 7 == 0 && CurrentTime != last_time_spawn)
     {
+        cout << "YES" << endl;
         Global::GetInstance()->spawn(0, 0, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
         Global::GetInstance()->spawn(0, SCREEN_HEIGHT - TANK_SIZE, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
         last_time_spawn = CurrentTime;
     }
-    else if(CurrentTime > 60 && CurrentTime <= 90 && CurrentTime % 5 == 0 && CurrentTime != last_time_spawn)
+    else if(CurrentTime > 30 && CurrentTime <= 60 && CurrentTime % 5 == 0 && CurrentTime != last_time_spawn)
     {
+        cout << "YES" << endl;
         Global::GetInstance()->spawn(0, 0, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
         Global::GetInstance()->spawn(0, SCREEN_HEIGHT - TANK_SIZE, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
         last_time_spawn = CurrentTime;
     }
-    else if(CurrentTime > 90 && CurrentTime % 3 == 0 && CurrentTime != last_time_spawn)
+    else if(CurrentTime > 60 && CurrentTime % 3 == 0 && CurrentTime != last_time_spawn)
     {
+        cout << "YES" << endl;
         Global::GetInstance()->spawn(0, 0, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
         Global::GetInstance()->spawn(0, SCREEN_HEIGHT - TANK_SIZE, 0);

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1620174525 source:d:\sdl\mycode\tankcar\main.cpp
+1620179302 source:d:\sdl\mycode\tankcar\main.cpp
 	"Engine.h"
 	<bits/stdc++.h>
 	<SDL.h>
@@ -7,7 +7,7 @@
 	<SDL_ttf.h>
 	<SDL_mixer.h>
 
-1620174521 d:\sdl\mycode\tankcar\source\core\engine.h
+1620179309 d:\sdl\mycode\tankcar\source\core\engine.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -31,7 +31,7 @@
 	<bits/stdc++.h>
 	<SDL.h>
 
-1620014644 d:\sdl\mycode\tankcar\source\timer\timer.h
+1620180386 d:\sdl\mycode\tankcar\source\timer\timer.h
 	<bits/stdc++.h>
 	<SDL.h>
 
@@ -44,7 +44,7 @@
 	<SDL_ttf.h>
 	<SDL_mixer.h>
 
-1620144324 source:d:\sdl\mycode\tankcar\source\graphics\texturemanager.cpp
+1620179631 source:d:\sdl\mycode\tankcar\source\graphics\texturemanager.cpp
 	"TextureManager.h"
 	"Engine.h"
 	"Global.h"
@@ -64,7 +64,7 @@
 	<SDL_ttf.h>
 	<SDL_mixer.h>
 
-1620177742 source:d:\sdl\mycode\tankcar\source\core\engine.cpp
+1620180534 source:d:\sdl\mycode\tankcar\source\core\engine.cpp
 	"Engine.h"
 	"TextureManager.h"
 	"EventHandler.h"
@@ -74,7 +74,7 @@
 	"Timer.h"
 	"Global.h"
 
-1620135496 d:\sdl\mycode\tankcar\source\object\player.h
+1620180687 d:\sdl\mycode\tankcar\source\object\player.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -90,7 +90,7 @@
 
 1620051449 d:\sdl\mycode\tankcar\source\somefuntion.h
 
-1620106969 source:d:\sdl\mycode\tankcar\source\object\enemy.cpp
+1620179674 source:d:\sdl\mycode\tankcar\source\object\enemy.cpp
 	"Enemy.h"
 	"TextureManager.h"
 	"EventHandler.h"

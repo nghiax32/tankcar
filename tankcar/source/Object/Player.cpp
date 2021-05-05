@@ -62,7 +62,7 @@ void Player::Update()
     if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE))
     {
         int CurrentTime = Timer::GetInstance()->GetTime();
-        if(CurrentTime - LastTimeFire >= 600)
+        if(CurrentTime - LastTimeFire >= 500)
         {
             int _x, _y, _angle;
 

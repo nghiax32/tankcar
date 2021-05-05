@@ -15,15 +15,17 @@ class Timer
 
         void Render();
 
+        int start_time;
+
         inline int GetTime()
         {
-            return SDL_GetTicks();
+            return SDL_GetTicks() - start_time;
         }
 
         inline string GetCurrentTime()
         {
             stringstream ss;
-            ss << int(SDL_GetTicks()) / 1000;
+            ss << int(SDL_GetTicks()) / 1000 - start_time;
             string res = ss.str();
             res = string(4 - res.size(), '0') + res;
             return res;

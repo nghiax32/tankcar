@@ -73,4 +73,6 @@ void TextureManager::Clean()
 
     Global::GetInstance()->mTextureMap.clear();
     Global::GetInstance()->mProsMap.clear();
+    Global::GetInstance()->enemy.clear();
+    Global::GetInstance()->bullet.clear();
 }
