@@ -24,6 +24,7 @@ bool TextureManager::Load(string id, string path)
 
     Global::GetInstance()->mTextureMap[id] = texture;
     Global::GetInstance()->mProsMap[id] = surface->clip_rect;
+    SDL_FreeSurface(surface);
 	return true;
 }
 
@@ -55,6 +56,8 @@ bool TextureManager::LoadText(string id, string path, int fontSize, SDL_Color te
 
     Global::GetInstance()->mTextureMap[id] = texture;
     Global::GetInstance()->mProsMap[id] = textSurface->clip_rect;
+    SDL_FreeSurface(textSurface);
+    TTF_CloseFont(font);
 	return true;
 }
 

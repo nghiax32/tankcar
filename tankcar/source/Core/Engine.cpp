@@ -84,9 +84,9 @@ void Engine::Load()
     Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
     last_time_spawn = 0;
 
-    //Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024);
-   // Mix_Music *music = Mix_LoadMUS("sounds/music.mp3");
-    //Mix_PlayMusic(music, 1);
+    Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024);
+    Mix_Music *music = Mix_LoadMUS("sounds/music.mp3");
+    Mix_PlayMusic(music, 1);
 
     Timer::GetInstance()->start_time = int(SDL_GetTicks()) / 1000;
 
@@ -223,6 +223,7 @@ void Engine::Update()
         {
             SDL_DestroyTexture(Global::GetInstance()->mTextureMap[(*it)->mTextureID]);
             Global::GetInstance()->mTextureMap.erase((*it)->mTextureID);
+            delete(*it);
             Global::GetInstance()->mProsMap.erase((*it)->mTextureID);
             Global::GetInstance()->enemy.erase(it);
             player->Score++;
@@ -241,6 +242,7 @@ void Engine::Update()
         {
             SDL_DestroyTexture(Global::GetInstance()->mTextureMap[(*it1)->mTextureID]);
             Global::GetInstance()->mTextureMap.erase((*it1)->mTextureID);
+            delete(*it1);
             Global::GetInstance()->mProsMap.erase((*it1)->mTextureID);
             Global::GetInstance()->bullet.erase(it1);
         }

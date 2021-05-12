@@ -33,6 +33,8 @@ void Global::spawn(int x, int y, int angle)
     if(CheckCollision(TANK_ENEMY + convert(enemy_count)))
     {
         enemy.pop_back();
+        SDL_DestroyTexture(mTextureMap[TANK_ENEMY + convert(enemy_count)]);
+        delete(enemy.back());
         mTextureMap.erase(TANK_ENEMY + convert(enemy_count));
         mProsMap.erase(TANK_ENEMY + convert(enemy_count));
     }
