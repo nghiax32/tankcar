@@ -84,9 +84,9 @@ void Engine::Load()
     Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
     last_time_spawn = 0;
 
-    Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 100);
-    Mix_Music *music = Mix_LoadMUS("sounds/music.mp3");
-    Mix_PlayMusic(music, 1);
+    //Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024);
+   // Mix_Music *music = Mix_LoadMUS("sounds/music.mp3");
+    //Mix_PlayMusic(music, 1);
 
     Timer::GetInstance()->start_time = int(SDL_GetTicks()) / 1000;
 
@@ -164,7 +164,7 @@ void Engine::End()
                                           Global::GetInstance()->mProsMap[Global::GetInstance()->convert(player->Score)].w,
                                           Global::GetInstance()->mProsMap[Global::GetInstance()->convert(player->Score)].h,
                                           0);
-
+    SDL_DestroyTexture(Global::GetInstance()->mTextureMap[Global::GetInstance()->convert(player->Score)]);
     Global::GetInstance()->mTextureMap.erase(Global::GetInstance()->convert(player->Score));
     Global::GetInstance()->mProsMap.erase(Global::GetInstance()->convert(player->Score));
 
@@ -194,28 +194,16 @@ void Engine::Update()
     player->Update();
 
     int CurrentTime = Timer::GetInstance()->GetTime()/1000;
-    cout << CurrentTime << endl;
-    if(CurrentTime <= 30 && CurrentTime % 7 == 0 && CurrentTime != last_time_spawn)
+    if(CurrentTime <= 30 && CurrentTime % 8 == 0 && CurrentTime != last_time_spawn)
     {
-        cout << "YES" << endl;
         Global::GetInstance()->spawn(0, 0, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
         Global::GetInstance()->spawn(0, SCREEN_HEIGHT - TANK_SIZE, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
         last_time_spawn = CurrentTime;
     }
-    else if(CurrentTime > 30 && CurrentTime <= 60 && CurrentTime % 5 == 0 && CurrentTime != last_time_spawn)
+    else if(CurrentTime > 30 && CurrentTime % 5 == 0 && CurrentTime != last_time_spawn)
     {
-        cout << "YES" << endl;
-        Global::GetInstance()->spawn(0, 0, 0);
-        Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
-        Global::GetInstance()->spawn(0, SCREEN_HEIGHT - TANK_SIZE, 0);
-        Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
-        last_time_spawn = CurrentTime;
-    }
-    else if(CurrentTime > 60 && CurrentTime % 3 == 0 && CurrentTime != last_time_spawn)
-    {
-        cout << "YES" << endl;
         Global::GetInstance()->spawn(0, 0, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
         Global::GetInstance()->spawn(0, SCREEN_HEIGHT - TANK_SIZE, 0);
@@ -233,6 +221,7 @@ void Engine::Update()
         }
         else
         {
+            SDL_DestroyTexture(Global::GetInstance()->mTextureMap[(*it)->mTextureID]);
             Global::GetInstance()->mTextureMap.erase((*it)->mTextureID);
             Global::GetInstance()->mProsMap.erase((*it)->mTextureID);
             Global::GetInstance()->enemy.erase(it);
@@ -250,6 +239,7 @@ void Engine::Update()
         }
         else
         {
+            SDL_DestroyTexture(Global::GetInstance()->mTextureMap[(*it1)->mTextureID]);
             Global::GetInstance()->mTextureMap.erase((*it1)->mTextureID);
             Global::GetInstance()->mProsMap.erase((*it1)->mTextureID);
             Global::GetInstance()->bullet.erase(it1);
@@ -295,6 +285,7 @@ void Engine::Render()
     SDL_Color textColor = {255, 255, 255};
     TextureManager::GetInstance()->LoadText(Timer::GetInstance()->GetCurrentTime(), "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
     Timer::GetInstance()->Render();
+    SDL_DestroyTexture(Global::GetInstance()->mTextureMap[Timer::GetInstance()->GetCurrentTime()]);
     Global::GetInstance()->mTextureMap.erase(Timer::GetInstance()->GetCurrentTime());
     Global::GetInstance()->mProsMap.erase(Timer::GetInstance()->GetCurrentTime());
 
@@ -304,7 +295,7 @@ void Engine::Render()
                                           Global::GetInstance()->mProsMap[SCORE + Global::GetInstance()->convert(player->Score)].w,
                                           Global::GetInstance()->mProsMap[SCORE + Global::GetInstance()->convert(player->Score)].h,
                                           0);
-
+    SDL_DestroyTexture(Global::GetInstance()->mTextureMap[SCORE + Global::GetInstance()->convert(player->Score)]);
     Global::GetInstance()->mTextureMap.erase(SCORE + Global::GetInstance()->convert(player->Score));
     Global::GetInstance()->mProsMap.erase(SCORE + Global::GetInstance()->convert(player->Score));
 
@@ -314,7 +305,7 @@ void Engine::Render()
                                           Global::GetInstance()->mProsMap[HP + Global::GetInstance()->convert(player->HP)].w,
                                           Global::GetInstance()->mProsMap[HP + Global::GetInstance()->convert(player->HP)].h,
                                           0);
-
+    SDL_DestroyTexture(Global::GetInstance()->mTextureMap[HP + Global::GetInstance()->convert(player->HP)]);
     Global::GetInstance()->mTextureMap.erase(HP + Global::GetInstance()->convert(player->HP));
     Global::GetInstance()->mProsMap.erase(HP + Global::GetInstance()->convert(player->HP));
 

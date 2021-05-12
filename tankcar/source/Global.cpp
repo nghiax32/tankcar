@@ -1,5 +1,6 @@
 #include "Global.h"
 #include "TextureManager.h"
+#include "MoveHandler.h"
 
 Global* Global::sInstance = nullptr;
 
@@ -29,6 +30,12 @@ void Global::spawn(int x, int y, int angle)
 {
     TextureManager::GetInstance()->Load(TANK_ENEMY + convert(enemy_count), "images/tank2.png");
     enemy.push_back(new Enemy(TANK_ENEMY + convert(enemy_count), x, y, angle));
+    if(CheckCollision(TANK_ENEMY + convert(enemy_count)))
+    {
+        enemy.pop_back();
+        mTextureMap.erase(TANK_ENEMY + convert(enemy_count));
+        mProsMap.erase(TANK_ENEMY + convert(enemy_count));
+    }
     enemy_count++;
 }
 
