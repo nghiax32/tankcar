@@ -27,7 +27,7 @@ bool CheckCollision(string id)
     map<string, SDL_Rect> :: iterator it;
     for(it = Global::GetInstance()->mProsMap.begin(); it != Global::GetInstance()->mProsMap.end(); it++)
     {
-        if((it->first).substr(0, 5) == "TANK_" && it->first != id)
+        if(((it->first).substr(0, 5) == "TANK_" || (it->first).substr(0, 6) == "BLOCK_") && it->first != id)
         {
             SDL_Rect b = it->second;
             bool x_overlaps = (a.x <= b.x + b.w) && (a.x + a.w >= b.x);

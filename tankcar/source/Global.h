@@ -38,6 +38,10 @@ class Global
 
         void spawn(int x, int y, int angle);
 
+        void place();
+
+        void render_block();
+
         void player_fire(int x, int y, int angle);
 
         void enemy_fire(int x, int y, int angle);

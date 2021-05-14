@@ -56,6 +56,9 @@ bool Engine::Init()
 		return false;
 	}
 
+    Mix_Music *music = Mix_LoadMUS("sounds/music.mp3");
+    Mix_PlayMusic(music, 1);
+
 	return true;
 }
 
@@ -75,8 +78,7 @@ void Engine::Load()
     TextureManager::GetInstance()->LoadText("YOUR SCORE IS", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
     TextureManager::GetInstance()->LoadText("PRESS BACKSPACE TO GO BACK TO MENU", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
 
-
-    player = new Player("TANK_PLAYER", (SCREEN_WIDTH - TANK_SIZE) / 2, (SCREEN_HEIGHT - TANK_SIZE) / 2, 0);
+    player = new Player("TANK_PLAYER", (SCREEN_WIDTH - TANK_SIZE) / 2, 0, 0);
 
     Global::GetInstance()->spawn(0, 0, 0);
     Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
@@ -84,9 +86,7 @@ void Engine::Load()
     Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
     last_time_spawn = 0;
 
-    Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024);
-    Mix_Music *music = Mix_LoadMUS("sounds/music.mp3");
-    Mix_PlayMusic(music, 1);
+    Global::GetInstance()->place();
 
     Timer::GetInstance()->start_time = int(SDL_GetTicks()) / 1000;
 
@@ -194,7 +194,7 @@ void Engine::Update()
     player->Update();
 
     int CurrentTime = Timer::GetInstance()->GetTime()/1000;
-    if(CurrentTime <= 30 && CurrentTime % 8 == 0 && CurrentTime != last_time_spawn)
+    if(CurrentTime <= 30 && CurrentTime % 5 == 0 && CurrentTime != last_time_spawn)
     {
         Global::GetInstance()->spawn(0, 0, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
@@ -202,7 +202,7 @@ void Engine::Update()
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, SCREEN_HEIGHT - TANK_SIZE, 0);
         last_time_spawn = CurrentTime;
     }
-    else if(CurrentTime > 30 && CurrentTime % 5 == 0 && CurrentTime != last_time_spawn)
+    else if(CurrentTime > 30 && CurrentTime % 3 == 0 && CurrentTime != last_time_spawn)
     {
         Global::GetInstance()->spawn(0, 0, 0);
         Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
@@ -283,6 +283,8 @@ void Engine::Render()
         (*it1)->Render();
         it1++;
     }
+
+    Global::GetInstance()->render_block();
 
     SDL_Color textColor = {255, 255, 255};
     TextureManager::GetInstance()->LoadText(Timer::GetInstance()->GetCurrentTime(), "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
