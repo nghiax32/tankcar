@@ -21,10 +21,10 @@ void Enemy::Update(int X, int Y)
 {
     int dx = Global::GetInstance()->mProsMap[mTextureID].x - X;
     int dy = Global::GetInstance()->mProsMap[mTextureID].y - Y;
-
     bool moved = false;
+	int CurrentTime = Timer::GetInstance()->GetTime() / 1000;
 
-    if(dx != 0 && !moved)
+    if(dx != 0 && CurrentTime % 3 != 0 && !moved)
     {
         if(dx <= 0)
         {
@@ -52,7 +52,7 @@ void Enemy::Update(int X, int Y)
         }
     }
 
-    if(dy != 0 && !moved)
+    if(dy != 0 && (CurrentTime % 3 == 0 || !moved) )
     {
         if(dy <= 0)
         {
@@ -83,7 +83,7 @@ void Enemy::Update(int X, int Y)
     mX = Global::GetInstance()->mProsMap[mTextureID].x;
     mY = Global::GetInstance()->mProsMap[mTextureID].y;
 
-    int CurrentTime = Timer::GetInstance()->GetTime();
+    CurrentTime = Timer::GetInstance()->GetTime();
     if(CurrentTime - LastTimeFire >= 1500)
     {
         int _x, _y, _angle;

@@ -78,7 +78,7 @@ void Engine::Load()
     TextureManager::GetInstance()->LoadText("YOUR SCORE IS", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
     TextureManager::GetInstance()->LoadText("PRESS BACKSPACE TO GO BACK TO MENU", "fonts/FrederickatheGreat-Regular.ttf", 25, textColor);
 
-    player = new Player("TANK_PLAYER", (SCREEN_WIDTH - TANK_SIZE) / 2, 0, 0);
+    player = new Player("TANK_PLAYER", (SCREEN_WIDTH - TANK_SIZE) / 2, (SCREEN_HEIGHT - TANK_SIZE) / 2, 0);
 
     Global::GetInstance()->spawn(0, 0, 0);
     Global::GetInstance()->spawn(SCREEN_WIDTH - TANK_SIZE, 0, 0);
@@ -168,7 +168,7 @@ void Engine::End()
     Global::GetInstance()->mTextureMap.erase(Global::GetInstance()->convert(player->Score));
     Global::GetInstance()->mProsMap.erase(Global::GetInstance()->convert(player->Score));
 
-    player->HP = 10;
+    player->HP = 30;
     player->Del = false;
 
     Global::GetInstance()->print("PRESS BACKSPACE TO GO BACK TO MENU", (SCREEN_HEIGHT - Global::GetInstance()->mProsMap["PRESS SPACE TO GO BACK TO MENU"].h) * 5 / 6);
@@ -223,7 +223,6 @@ void Engine::Update()
         {
             SDL_DestroyTexture(Global::GetInstance()->mTextureMap[(*it)->mTextureID]);
             Global::GetInstance()->mTextureMap.erase((*it)->mTextureID);
-            delete(*it);
             Global::GetInstance()->mProsMap.erase((*it)->mTextureID);
             Global::GetInstance()->enemy.erase(it);
             player->Score++;
@@ -242,7 +241,6 @@ void Engine::Update()
         {
             SDL_DestroyTexture(Global::GetInstance()->mTextureMap[(*it1)->mTextureID]);
             Global::GetInstance()->mTextureMap.erase((*it1)->mTextureID);
-            delete(*it1);
             Global::GetInstance()->mProsMap.erase((*it1)->mTextureID);
             Global::GetInstance()->bullet.erase(it1);
         }
