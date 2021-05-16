@@ -16,6 +16,7 @@ class Timer
         void Render();
 
         int start_time;
+        int pause_time;
 
         inline int GetTime()
         {

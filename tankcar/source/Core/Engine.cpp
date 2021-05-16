@@ -131,6 +131,10 @@ void Engine::Pause()
     Global::GetInstance()->print("PAUSED", (SCREEN_HEIGHT - Global::GetInstance()->mProsMap["PAUSED"].h) / 2);
     Global::GetInstance()->print("PRESS ENTER TO CONTINUE OR ESC TO END", (SCREEN_HEIGHT - Global::GetInstance()->mProsMap["PRESS ENTER TO CONTINUE OR ESC TO END"].h) * 2 / 3);
 
+    int CurrentTime = Timer::GetInstance()->GetTime()/1000;
+    Timer::GetInstance()->start_time += CurrentTime - Timer::GetInstance()->pause_time;
+    Timer::GetInstance()->pause_time = CurrentTime;
+
     if(EventHandler::GetInstance()->GetKeyDown(SDL_SCANCODE_RETURN))
     {
         mIsPaused = false;
@@ -194,6 +198,8 @@ void Engine::Update()
     player->Update();
 
     int CurrentTime = Timer::GetInstance()->GetTime()/1000;
+    Timer::GetInstance()->pause_time = CurrentTime;
+
     if(CurrentTime <= 30 && CurrentTime % 5 == 0 && CurrentTime != last_time_spawn)
     {
         Global::GetInstance()->spawn(0, 0, 0);
